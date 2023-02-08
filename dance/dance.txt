@@ -1,0 +1,338 @@
+Sub punkt0()
+' alguspunkt (0;0)
+
+With Shapes("Donald")
+    .Left = 0
+    .Top = 0
+    .Height = 200
+    .Width = 200
+    .Rotation = 0
+End With
+End Sub
+
+Sub paus(a)
+a = Range("L2")
+Dim t
+t = Timer + a
+Do
+    DoEvents
+Loop Until Timer > t
+
+End Sub
+
+Sub huppa()
+'1 hupp'
+Shapes("Donald").Top = Shapes("Donald").Top + 50
+paus (a)
+Shapes("Donald").Top = Shapes("Donald").Top - 50
+End Sub
+
+Sub huppaN()
+' huppe
+'h - hupe kõrgus
+h = Range("L3")
+Shapes("Donald").Top = Shapes("Donald").Top + h
+paus (a)
+Shapes("Donald").Top = Shapes("Donald").Top - h
+End Sub
+
+
+Sub huppa3randomKõrgusega()
+' 3 huppe hüpe kõrgus - random'
+Randomize
+Dim pryg
+a = 10
+b = 100
+
+h = Rnd * (b - a) + a
+'declare pryg
+
+Do
+Shapes("Donald").Top = Shapes("Donald").Top + h
+paus (a)
+Shapes("Donald").Top = Shapes("Donald").Top - h
+paus (a)
+pryg = pryg + 1
+Loop Until pryg = 10
+End Sub
+
+Sub peida()
+' skrqvat' - kartinka ne vidna
+Shapes("Donald").Visible = False
+End Sub
+
+Sub näita()
+' pokazat' - kartinka vidna
+Shapes("Donald").Visible = True
+End Sub
+
+Sub väiksem()
+'pilt vaiksem
+Shapes("Donald").Width = Shapes("Donald").Width - 50
+Shapes("Donald").Height = Shapes("Donald").Height - 50
+End Sub
+
+Sub suurem()
+'pilt suurem
+Shapes("Donald").Width = Shapes("Donald").Width + 50
+Shapes("Donald").Height = Shapes("Donald").Height + 50
+End Sub
+
+Sub keera()
+Shapes("Donald").IncrementRotation (20)
+
+'diagonalis liikumine
+Shapes("Donald").IncrementLeft (10)
+Shapes("Donald").IncrementTop (10)
+End Sub
+
+Sub sisestajamaarab()
+x = InputBox("Kirjuta pilti x alguspunkt", "", "200")
+y = InputBox("Kirjuta pilti y alguspunkt", "", "200")
+laius = InputBox("Kirjuta pildi laius", "", "200")
+korgus = InputBox("Kirjuta pildi kõrgus", "", "200")
+With Shapes("Donald")
+    .Left = x
+    .Top = y
+    .Width = laius
+    .Height = korgus
+    .Rotation = 0
+End With
+
+MsgBox ("Pilti laius =" & laius & " alguspunkt (" & x & "," & y & ")")
+Shapes("Donald").Visible = True
+
+End Sub
+
+
+
+
+Sub ZeroPosition()
+'Position zero
+Leht1.Shapes("Kenny").Top = 0
+Leht1.Shapes("Cartman").Top = 0
+Leht1.Shapes("Kenny").Left = 0
+Leht1.Shapes("Cartman").Left = 150
+Leht1.Shapes("Kenny").Width = 150
+Leht1.Shapes("Cartman").Width = 150
+Leht1.Shapes("Kenny").Height = 150
+Leht1.Shapes("Cartman").Height = 150
+Leht1.Shapes("Kenny").Rotation = 0
+Leht1.Shapes("Cartman").Rotation = 0
+Leht1.Shapes("Kenny").Visible = True
+Leht1.Shapes("Cartman").Visible = True
+
+End Sub
+
+Sub pause(a)
+a = Range("U1")
+Dim t
+t = Timer + a
+Do
+    DoEvents
+Loop Until Timer > t
+
+End Sub
+
+
+Sub DataFromCels()
+
+top1 = Range("N2")
+left1 = Range("N3")
+wid1 = Range("N4")
+rot1 = Range("N5")
+top2 = Range("O2")
+left2 = Range("O3")
+wid2 = Range("O4")
+rot2 = Range("O5")
+
+
+Leht1.Shapes("Kenny").Top = Shapes("Kenny").Top + top1
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left + left1
+Leht1.Shapes("Kenny").Width = Shapes("Kenny").Width + wid1
+Leht1.Shapes("Kenny").Rotation = Shapes("Kenny").Rotation + rot1
+
+Leht1.Shapes("Cartman").Top = Shapes("Cartman").Top + top2
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + left2
+Leht1.Shapes("Cartman").Width = Shapes("Cartman").Width + wid2
+Leht1.Shapes("Cartman").Rotation = Shapes("Cartman").Rotation + rot2
+
+
+End Sub
+
+
+Sub DoLoop()
+
+h = 200
+h2 = h / 2
+l = 100
+
+count1 = 0
+count2 = 0
+
+Do
+Leht1.Shapes("Kenny").Top = Shapes("Kenny").Top - h2
+pause (a)
+Leht1.Shapes("Kenny").Top = Shapes("Kenny").Top + h
+pause (a)
+Leht1.Shapes("Kenny").Top = Shapes("Kenny").Top - h2
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left + l
+pause (a)
+Leht1.Shapes("Kenny").Top = Shapes("Kenny").Top - h2
+pause (a)
+Leht1.Shapes("Kenny").Top = Shapes("Kenny").Top + h
+pause (a)
+Leht1.Shapes("Kenny").Top = Shapes("Kenny").Top - h2
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - l
+count1 = count1 + 1
+Loop Until count1 = 5
+
+Do
+Leht1.Shapes("Cartman").Top = Shapes("Cartman").Top - h2
+pause (a)
+Leht1.Shapes("Cartman").Top = Shapes("Cartman").Top + h
+pause (a)
+Leht1.Shapes("Cartman").Top = Shapes("Cartman").Top - h2
+pause (a)
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + l
+pause (a)
+Leht1.Shapes("Cartman").Top = Shapes("Cartman").Top - h2
+pause (a)
+Leht1.Shapes("Cartman").Top = Shapes("Cartman").Top + h
+pause (a)
+Leht1.Shapes("Cartman").Top = Shapes("Cartman").Top - h2
+pause (a)
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left - l
+
+count2 = count2 + 1
+Loop Until count2 = 5
+
+End Sub
+
+Sub Dance()
+
+h = 100
+l = 50
+l2 = 100
+r = 30
+
+Leht1.Shapes("Kenny").Visible = False
+Leht1.Shapes("Cartman").Visible = False
+Leht1.Shapes("Kenny").Top = Shapes("Kenny").Top + 500
+Leht1.Shapes("Cartman").Top = Shapes("Cartman").Top + 500
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left + 700
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + 700
+pause (a)
+Leht1.Shapes("Kenny").Visible = True
+Leht1.Shapes("Cartman").Visible = True
+pause (a)
+Leht1.Shapes("Kenny").Top = Shapes("Kenny").Top - h
+Leht1.Shapes("Cartman").Top = Shapes("Cartman").Top - h
+pause (a)
+Leht1.Shapes("Kenny").Top = Shapes("Kenny").Top + h
+Leht1.Shapes("Cartman").Top = Shapes("Cartman").Top + h
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - l
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + l
+Leht1.Shapes("Kenny").Rotation = Shapes("Kenny").Rotation - r
+Leht1.Shapes("Cartman").Rotation = Shapes("Cartman").Rotation + r
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left + l
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left - l
+Leht1.Shapes("Kenny").Rotation = Shapes("Kenny").Rotation + r
+Leht1.Shapes("Cartman").Rotation = Shapes("Cartman").Rotation - r
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - l
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + l
+Leht1.Shapes("Kenny").Rotation = Shapes("Kenny").Rotation - r
+Leht1.Shapes("Cartman").Rotation = Shapes("Cartman").Rotation + r
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left + l
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left - l
+Leht1.Shapes("Kenny").Rotation = Shapes("Kenny").Rotation + r
+Leht1.Shapes("Cartman").Rotation = Shapes("Cartman").Rotation - r
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left + l
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left - l
+Leht1.Shapes("Kenny").Rotation = Shapes("Kenny").Rotation + r
+Leht1.Shapes("Cartman").Rotation = Shapes("Cartman").Rotation - r
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - l
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + l
+Leht1.Shapes("Kenny").Rotation = Shapes("Kenny").Rotation - r
+Leht1.Shapes("Cartman").Rotation = Shapes("Cartman").Rotation + r
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left + l
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left - l
+Leht1.Shapes("Kenny").Rotation = Shapes("Kenny").Rotation + r
+Leht1.Shapes("Cartman").Rotation = Shapes("Cartman").Rotation - r
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - l
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + l
+Leht1.Shapes("Kenny").Rotation = Shapes("Kenny").Rotation - r
+Leht1.Shapes("Cartman").Rotation = Shapes("Cartman").Rotation + r
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - l2
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + l2
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - l2
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + l2
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - l2
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + l2
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - l2
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + l2
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - l2
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + l2
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - l2
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + l2
+pause (a)
+Leht1.Shapes("Cartman").Width = Shapes("Cartman").Width + 15
+Leht1.Shapes("Cartman").Height = Shapes("Cartman").Height + 15
+Leht1.Shapes("Kenny").Width = Shapes("Kenny").Width + 15
+Leht1.Shapes("Kenny").Height = Shapes("Kenny").Height + 15
+pause (a)
+Leht1.Shapes("Cartman").Width = Shapes("Cartman").Width + 15
+Leht1.Shapes("Cartman").Height = Shapes("Cartman").Height + 15
+Leht1.Shapes("Kenny").Width = Shapes("Kenny").Width + 15
+Leht1.Shapes("Kenny").Height = Shapes("Kenny").Height + 15
+pause (a)
+Leht1.Shapes("Cartman").Width = Shapes("Cartman").Width + 15
+Leht1.Shapes("Cartman").Height = Shapes("Cartman").Height + 15
+Leht1.Shapes("Kenny").Width = Shapes("Kenny").Width + 15
+Leht1.Shapes("Kenny").Height = Shapes("Kenny").Height + 15
+pause (a)
+Leht1.Shapes("Cartman").Width = Shapes("Cartman").Width + 15
+Leht1.Shapes("Cartman").Height = Shapes("Cartman").Height + 15
+Leht1.Shapes("Kenny").Width = Shapes("Kenny").Width + 15
+Leht1.Shapes("Kenny").Height = Shapes("Kenny").Height + 15
+pause (a)
+Leht1.Shapes("Cartman").Width = Shapes("Cartman").Width + 15
+Leht1.Shapes("Cartman").Height = Shapes("Cartman").Height + 15
+Leht1.Shapes("Kenny").Width = Shapes("Kenny").Width + 15
+Leht1.Shapes("Kenny").Height = Shapes("Kenny").Height + 15
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left + 1000
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left - 1000
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left - 200
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left + 200
+pause (a)
+Leht1.Shapes("Kenny").Left = Shapes("Kenny").Left + 100
+Leht1.Shapes("Cartman").Left = Shapes("Cartman").Left - 100
+pause (a)
+Leht1.Shapes("Kenny").Rotation = Shapes("Kenny").Rotation + 90
+Leht1.Shapes("Cartman").Rotation = Shapes("Cartman").Rotation - 90
+pause (a)
+Leht1.Shapes("Kenny").Visible = False
+Leht1.Shapes("Cartman").Visible = False
+pause (a)
+MsgBox "Game over!"
+
+End Sub
